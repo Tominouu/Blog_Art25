@@ -1,12 +1,9 @@
 <?php
 include '../../../header.php';
 
-$numThem = isset($_GET['numThem']);
-$libThem = '';
-
-if ($numThem) {
-    $result = sql_select("THEMATIQUE", "libThem", "numThem = $numThem");
-    $libThem = $result[0]['libThem'];
+if(isset($_GET['numThem'])){
+    $numThem = $_GET['numThem'];
+    $libThem = sql_select("THEMATIQUE", "libThem", "numThem = $numThem")[0]['libThem'];
 }
 ?>
 
@@ -16,7 +13,7 @@ if ($numThem) {
             <h1>Modification de la Thematique</h1>
         </div>
         <div class="col-md-12">
-            <form action="<?php echo ROOT_URL . '/api/thematique/update.php' ?>" method="post">
+            <form action="<?php echo ROOT_URL . '/api/thematiques/update.php' ?>" method="post">
                 <div class="form-group">
                     <label for="libThem">Nom de la thematique</label>
                     <input id="numThem" name="numThem" class="form-control" style="display: none" type="text" value="<?php echo($numThem); ?>" readonly="readonly" />
