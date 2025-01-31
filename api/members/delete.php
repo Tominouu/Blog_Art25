@@ -4,7 +4,7 @@ require_once '../../functions/ctrlSaisies.php';
 
 $numMemb = ctrlSaisies($_POST['numMemb']);
 
-sql_delete('motcle', "numMemb = $numMemb");
+sql_delete('membre', "numMemb = $numMemb");
 
 
 header('Location: ../../views/backend/members/list.php'); 
