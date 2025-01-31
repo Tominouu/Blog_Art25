@@ -6,7 +6,7 @@ if(isset($_GET['numMemb'])){
     $nomMemb = sql_select("membre", "nomMemb", "numMemb = $numMemb")[0]['nomMemb'];
     $prenomMemb = sql_select("membre", "prenomMemb", "numMemb = $numMemb")[0]['prenomMemb'];
     $pseudoMemb = sql_select("membre", "pseudoMemb", "numMemb = $numMemb")[0]['pseudoMemb'];
-    $passMemb = sql_select("membre", "passMemb", "numMemb = $numMemb")[0]['passMemb '];
+    $passMemb = sql_select("membre", "passMemb", "numMemb = $numMemb")[0]['passMemb'];
     $eMailMemb = sql_select("membre", "eMailMemb", "numMemb = $numMemb")[0]['eMailMemb'];
 
 }
