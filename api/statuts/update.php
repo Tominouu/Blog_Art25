@@ -8,5 +8,5 @@ $libStat = ctrlSaisies($_POST['libStat']);
 //sql_delete('STATUT', "numStat = $numStat");
 sql_update(table: "STATUT",attributs: 'libStat = "'.$libStat.'"', where: "numStat = $numStat");
 
-header('Location: ../../views/backend/statuts/list.=php');
+header('Location: ../../views/backend/statuts/list.php');
 
