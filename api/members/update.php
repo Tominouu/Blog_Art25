@@ -7,9 +7,17 @@ $prenomMemb = ctrlSaisies($_POST['prenomMemb']);
 $pseudoMemb = ctrlSaisies($_POST['pseudoMemb']);
 $passMemb = ctrlSaisies($_POST['passMemb']);
 $eMailMemb = ctrlSaisies($_POST['eMailMemb']);
-$numStat = ctrlSaisies($_POST['numStat']);
+$numStat = isset($_POST['numStat']);
 
-sql_update('membre', 'nomMemb, prenomMemb, pseudoMemb, passMemb, eMailMemb, numStat', "'$nomMemb', '$prenomMemb', '$pseudoMemb', '$passMemb', '$eMailMemb', '$numStat'");
+$numMemb = ctrlSaisies($_POST['numMemb']);
 
+$sql = "UPDATE members SET 
+nomMemb = '$nomMemb', 
+prenomMemb = '$prenomMemb', 
+pseudoMemb = '$pseudoMemb', 
+passMemb = '$passMemb', 
+eMailMemb = '$eMailMemb', 
+numStat = '$numStat'
+WHERE numMemb = '$numMemb'";
 
 header('Location: ../../views/backend/members/list.php');
