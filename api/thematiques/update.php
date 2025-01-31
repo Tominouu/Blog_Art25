@@ -8,4 +8,4 @@ $libThem = ctrlSaisies($_POST['libThem']);
 //sql_delete('STATUT', "numStat = $numStat");
 sql_update(table: "THEMATIQUE",attributs: 'libThem = "'.$libThem.'"', where: "numThem = $numThem");
 
-header('Location: ../../views/backend/thematiques/list.=php');
+header('Location: ../../views/backend/thematiques/list.php');
