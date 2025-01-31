@@ -23,7 +23,7 @@ if(isset($_GET['numThem'])){
                 </div>
                 <br />
                 <div class="form-group mt-2">
-                    <a href="list.php" class="btn btn-primary">Delete</a>
+                    <a href="list.php" class="btn btn-primary">List</a>
                     <button type="submit" class="btn btn-danger">Confirmer delete ?</button>
                 </div>
             </form>
