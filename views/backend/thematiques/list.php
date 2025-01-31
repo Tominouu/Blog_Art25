@@ -2,7 +2,7 @@
 include '../../../header.php'; // contains the header and call to config.php
 
 //Load all statuts
-$thematiques = sql_select("thematique", "*");
+$thematiques = sql_select("THEMATIQUE", "*");
 ?>
 
 <!-- Bootstrap default layout to display all statuts in foreach -->
@@ -14,7 +14,7 @@ $thematiques = sql_select("thematique", "*");
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Nom des thematique</th>
+                        <th>Nom des thematiques</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
