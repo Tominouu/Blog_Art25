@@ -14,7 +14,7 @@ $motcles = sql_select("motcle", "*");
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Mot clés des thematique</th>
+                        <th>Mot clé</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
