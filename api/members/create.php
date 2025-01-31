@@ -10,7 +10,7 @@ $eMailMemb = ctrlSaisies($_POST['eMailMemb']);
 $dtCreaMemb = ctrlSaisies($_POST['dtCreaMemb']);
 $numStat = ctrlSaisies($_POST['numStat']);
 
-sql_insert('membre', 'nomMemb, prenomMemb, pseudoMemb, passMemb, eMailMemb, dtCreaMemb, numStat', "'$nomMemb', '$prenomMemb', '$pseudoMemb', '$passMemb', '$eMailMemb', '$dtCreaMemb', '$numStat'");
+sql_insert('membre', 'nomMemb, prenomMemb, pseudoMemb, passMemb, eMailMemb, numStat', "'$nomMemb', '$prenomMemb', '$pseudoMemb', '$passMemb', '$eMailMemb', '$numStat'");
 
 
 header('Location: ../../views/backend/members/list.php');
