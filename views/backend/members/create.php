@@ -32,14 +32,11 @@ include '../../../header.php';
                     <input id="eMailMemb" name="eMailMemb" class="form-control" type="text" autofocus="autofocus" />
                 </div>
                 <div class="form-group">
-                    <label for="dtCreaMemb">Date de Création</label>
-                    <input id="dtCreaMemb" name="dtCreaMemb" class="form-control" type="text" autofocus="autofocus" />
-                </div>
-                <div class="form-group">
                     <label for="numStat">Statut</label>
                     <select id="numStat" name="numStat" class="form-control">
                         <option value="1">Admin</option>
-                        <option value="2">User</option>
+                        <option value="2">Moderateur</option>
+                        <option value="2">Membre</option>
                     </select>
                 </div>
                 <br />
