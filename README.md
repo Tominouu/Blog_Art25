@@ -4,7 +4,7 @@
 
 
 ## Architecture
-- **api** - Contains all php calls for example "create.php" for statuts, articles
+- **api** - Contains all php calls for example "create.php" for statuts, articles.
 - **classes** - Contains all classes for example "members.php"
 - **config** - Contains all the configuration files specific to the operation of the application, for example "security.php"
 - **functions** - Contains all the functions of your code for example "data.php", "create.php"
