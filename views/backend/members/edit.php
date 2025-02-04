@@ -9,6 +9,7 @@ if(isset($_GET['numMemb'])){
     $passMemb = sql_select("membre", "passMemb", "numMemb = $numMemb")[0]['passMemb'];
     $eMailMemb = sql_select("membre", "eMailMemb", "numMemb = $numMemb")[0]['eMailMemb'];
     $dtCreaMemb = sql_select("membre", "dtCreaMemb", "numMemb = $numMemb")[0]['dtCreaMemb'];
+    $numStat = sql_select("membre", "numStat", "numMemb = $numMemb")[0]['numStat'];
 }
 ?>
 
@@ -45,6 +46,11 @@ if(isset($_GET['numMemb'])){
                     <label for="eMailMemb">Mail</label>
                     <input id="numMemb" name="numMemb" class="form-control" style="display: none" type="text" value="<?php echo($numMemb); ?>" readonly="readonly" />
                     <input id="eMailMemb" name="eMailMemb" class="form-control" type="text" value="<?php echo($eMailMemb);  ?>"/>
+                </div>
+                <div class="form-group">
+                    <label for="numStat">Statut</label>
+                    <input id="numMemb" name="numMemb" class="form-control" style="display: none" type="text" value="<?php echo($numMemb); ?>" readonly="readonly" />
+                    <input id="numStat" name="numStat" class="form-control" type="text" value="<?php echo($numStat);  ?>"/>
                 </div>
                 <br />
                 <div class="form-group mt-2">
