@@ -11,7 +11,11 @@
     <link rel="shortcut icon" type="image/x-icon" href="src/images/article.png" />
 </head>
 <?php
-//load config
+session_start();
+$pseudo = isset($_SESSION['pseudoMemb']) ? $_SESSION['pseudoMemb'] : null;
+$numStat = isset($_SESSION['numStat']) ? $_SESSION['numStat'] : 3;    
+
+// Load config
 require_once 'config.php';
 ?>
 <body>
@@ -26,20 +30,36 @@ require_once 'config.php';
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/">Home</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/views/backend/dashboard.php">Admin</a>
-        </li>
+
+        <!-- ✅ Bouton Admin visible uniquement si l'utilisateur est modérateur ou admin -->
+        <?php if ($numStat == '1' || $numStat == '2'): ?>
+          <li class="nav-item">
+            <a class="nav-link" href="/views/backend/dashboard.php">Admin</a>
+          </li>
+        <?php endif; ?>
       </ul>
     </div>
-    <!--right align-->
-    <div class="d-flex">
-      <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Rechercher sur le site…" aria-label="Search" >
+
+    <!-- Zone de droite -->
+    <div class="d-flex align-items-center">
+      <form class="d-flex me-2" role="search">
+          <input class="form-control me-2" type="search" placeholder="Rechercher sur le site…" aria-label="Search">
       </form>
-      <a class="btn btn-primary m-1" href="/views/backend/security/login.php" role="button">Login</a>
-      <a class="btn btn-dark m-1" href="/views/backend/security/signup.php" role="button">Sign up</a>
-      <a class="btn btn-danger m-1" href="/api/security/disconnect.php" role="button">Déconnexion</a>
-      
+
+      <!-- Si l'utilisateur est connecté -->
+      <?php if ($pseudo): ?>
+        <div class="d-flex align-items-center me-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+            <path d="M13.468 12.37C12.444 11.226 10.834 10.5 8 10.5s-4.444.726-5.468 1.87A6.992 6.992 0 0 1 8 1a6.992 6.992 0 0 1 5.468 11.37z"/>
+            <path fill-rule="evenodd" d="M8 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+          </svg>
+          <span class="ms-2 fw-bold"><?php echo htmlspecialchars($pseudo); ?></span>
+        </div>
+        <a class="btn btn-danger m-1" href="/api/security/disconnect.php" role="button">Déconnexion</a>
+      <?php else: ?>
+        <a class="btn btn-primary m-1" href="/views/backend/security/login.php" role="button">Login</a>
+        <a class="btn btn-dark m-1" href="/views/backend/security/signup.php" role="button">Sign up</a>
+      <?php endif; ?>
     </div>
   </div>
 </nav>
