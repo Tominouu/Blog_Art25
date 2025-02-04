@@ -1,0 +1,16 @@
+main {
+    font-family: "Karla", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+h1{
+    font-weight: bold;
+}
+
+
+.decorative-line {
+    border: 0;
+    height: 4px;
+    background: #007bff;
+}
