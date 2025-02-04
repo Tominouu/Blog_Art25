@@ -10,7 +10,9 @@ $eMailMemb = ctrlSaisies($_POST['eMailMemb']);
 $dtCreaMemb = ctrlSaisies($_POST['dtCreaMemb']);
 $numStat = ctrlSaisies($_POST['numStat']);
 
-sql_insert('membre', 'nomMemb, prenomMemb, pseudoMemb, passMemb, eMailMemb, numStat', "'$nomMemb', '$prenomMemb', '$pseudoMemb', '$passMemb', '$eMailMemb', '$numStat'");
+// Hash the password
+$hashedPassMemb = password_hash($passMemb, PASSWORD_DEFAULT);
 
+sql_insert('membre', 'nomMemb, prenomMemb, pseudoMemb, passMemb, eMailMemb, numStat', "'$nomMemb', '$prenomMemb', '$pseudoMemb', '$hashedPassMemb', '$eMailMemb', '$numStat'");
 
 header('Location: ../../views/backend/members/list.php');
