@@ -38,6 +38,8 @@ require_once 'config.php';
       </form>
       <a class="btn btn-primary m-1" href="/views/backend/security/login.php" role="button">Login</a>
       <a class="btn btn-dark m-1" href="/views/backend/security/signup.php" role="button">Sign up</a>
+      <a class="btn btn-danger m-1" href="/api/security/disconnect.php" role="button">Déconnexion</a>
+      
     </div>
   </div>
 </nav>
