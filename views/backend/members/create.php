@@ -36,7 +36,7 @@ include '../../../header.php';
                     <select id="numStat" name="numStat" class="form-control">
                         <option value="1">Admin</option>
                         <option value="2">Moderateur</option>
-                        <option value="2">Membre</option>
+                        <option value="3">Membre</option>
                     </select>
                 </div>
                 <br />
