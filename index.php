@@ -8,14 +8,18 @@
     // Récupérer les articles de la base de données
     $article = sql_select("ARTICLE", "*");
     ?>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Karla:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="<?php echo ROOT_URL . '/src/css/style.css'; ?>" />
     <main class="container bg-white">
-        <div class="row">
+        <div class="row position-relative">
             <div class="col mt-4">
-                <h1 class="text-center me-5"> LES GARDIENS DE LA GARONNE </h1>
-                <hr class="decorative-line mt-1">
-            </div>
+                <img src="src/images/pont-pierre.jpg" alt="Pont de Pierre" style="width: 100%; position: relative;">
+                <h1 class="text-center position-absolute top-50 start-50 translate-middle text-white bg-black bg-opacity-10" style="z-index: 1; font-size:5vw;">LES GARDIENS DE LA GARONNE</h1>    </div>    
+        <hr class="decorative-line mt-1">
+        </div>
         </div>
         <div class="row">
             <!-- Article à la une (titre) -->
