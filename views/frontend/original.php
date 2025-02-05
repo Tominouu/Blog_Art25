@@ -6,14 +6,14 @@
     require_once $_SERVER['DOCUMENT_ROOT'] . '/config.php';
 
     // Récupérer les articles de la base de données
-    $article = sql_select("ARTICLE", "*", "numThem = 4");
+    $article = sql_select("ARTICLE", "*", "numThem = 4 ");
     ?>
 
     <link rel="stylesheet" href="<?php echo ROOT_URL . '/src/css/style.css'; ?>" />
     <main class="container bg-white">
         <div class="row">
             <div class="col mt-4">
-                <h1 class="text-center me-5 mt-2 mb-4"> Acteurs </h1>
+                <h1 class="text-center me-5 mt-2 mb-4"> Insolite </h1>
             </div>
         </div>
 
