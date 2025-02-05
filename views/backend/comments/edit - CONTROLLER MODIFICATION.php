@@ -124,8 +124,8 @@ if(isset($_GET['numCom'])){
                 <br>
                 <br>
                 <div class="form-group mt-2">
-                    <a href="list.php" class="btn btn-primary">Edit</a>
-                    <button type="submit" class="btn btn-danger">Confirmer update ?</button>
+                    <a href="list.php" class="btn btn-outline-primary">Edit</a>
+                    <button type="submit" class="btn btn-outline-warning">Confirmer Edit ?</button>
                 </div>
             </form>
             <br>
