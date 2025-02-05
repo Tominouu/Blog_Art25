@@ -30,6 +30,15 @@ require_once 'config.php';
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/">Home</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/views/frontend/actors.php">Acteurs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/views/frontend/events.php">Evenement</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/views/frontend/original.php">Insolite</a>
+        </li>
 
         <!-- ✅ Bouton Admin visible uniquement si l'utilisateur est modérateur ou admin -->
         <?php if ($numStat == '1' || $numStat == '2'): ?>
