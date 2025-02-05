@@ -16,10 +16,9 @@
     <main class="container bg-white">
         <div class="row position-relative">
             <div class="col mt-4">
-                <img src="src/images/pont-pierre.jpg" alt="Pont de Pierre" style="width: 100%; position: relative;">
-                <h1 class="text-center position-absolute top-50 start-50 translate-middle text-white bg-black bg-opacity-10" style="z-index: 1; font-size:5vw;">LES GARDIENS DE LA GARONNE</h1>    </div>    
-        <hr class="decorative-line mt-1">
-        </div>
+                <img src="src/images/pont-pierre.jpg" alt="Pont de Pierre" style="width: 100%; position: relative; border-radius: 15px;">
+            </div>    
+            <h1 class="text-center position-absolute top-50 start-50 translate-middle text-white" style="z-index: 1; font-size:5vw;">LES GARDIENS DE LA GARONNE</h1>    </div>    
         </div>
         <div class="row">
             <!-- Article à la une (titre) -->
