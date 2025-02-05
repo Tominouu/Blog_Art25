@@ -52,8 +52,7 @@ $success = isset($_GET['success']) ? $_GET['success'] : null;
                 <div class="form-group">
                     <label for="numStat">Statut</label>
                     <select class="form-select" name="numStat" required>
-                        <option value="1">Membre</option>
-                        <option value="2">Admin</option>
+                        <option value="3">Membre</option>
                     </select>
                 </div>
                 <br />

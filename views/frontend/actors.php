@@ -13,13 +13,12 @@
     <main class="container bg-white">
         <div class="row">
             <div class="col mt-4">
-                <h1 class="text-center me-5"> Acteurs </h1>
-                <hr class="decorative-line mt-1">
+                <h1 class="text-center me-5 mt-2 mb-4"> Acteurs </h1>
             </div>
         </div>
 
         <!-- Articles suivants -->
-        <div class="row bg-primary bg-opacity-10">
+        <div class="row bg-primary bg-opacity-10" style="border-radius: 15px;">
             <?php foreach($article as $articles) { if (isset($articles)) { ?>
             <div class="col-md-6 p-4 p-md-5 mb-4 pe-3">
                 <div class="row g-0 border rounded flex-md-row mb-4 shadow-sm h-md-250 position-relative">
