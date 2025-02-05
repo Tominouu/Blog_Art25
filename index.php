@@ -28,7 +28,7 @@
                     <p class="lead my-3">
                         <?php echo $article ? htmlspecialchars($article[0]['libChapoArt']) : "Aucun article trouvé."; ?>
                     </p>
-                    <a href="views/frontend/articles/article?id=<?php echo $article[0]['numArt']; ?>" class="text-body-emphasis fw-bold">Lire la suite...</a>
+                    <a href="/views/frontend/articles/article?id=<?php echo $article[0]['numArt']; ?>" class="text-body-emphasis fw-bold">Lire la suite...</a>
                 </div>
             </div>
             <!-- Article à la une (image) -->
