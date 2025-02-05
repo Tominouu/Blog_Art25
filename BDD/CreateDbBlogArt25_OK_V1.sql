@@ -40,7 +40,7 @@
 
 -- First we create the database
 
-CREATE DATABASE BLOGART25
+CREATE DATABASE blogart25
 DEFAULT CHARACTER SET UTF8			  -- Tous les formats de caractères
 DEFAULT COLLATE utf8_general_ci ;  --
 
@@ -70,7 +70,7 @@ SET time_zone = "+00:00";
 --
 -- Base de données: BLOGART
 --
-USE BLOGART25;
+USE blogart25;
 
 
 -- --------------------------------------------------------------------
