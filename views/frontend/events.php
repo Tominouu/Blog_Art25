@@ -26,7 +26,7 @@
                     <div class="col-md-12 p-4 d-flex flex-column position-static">
                         <h3 class="mb-3"><?php echo htmlspecialchars($articles['libTitrArt']); ?></h3>
                         <p class="card-text mb-auto"><?php echo htmlspecialchars($articles['libChapoArt']); ?></p>
-                        <a href="views/frontend/articles/article?id=<?php echo $articles['numArt']; ?>" class="text-body-emphasis fw-bold">Lire la suite...</a>
+                        <a href="/views/frontend/articles/article?id=<?php echo $articles['numArt']; ?>" class="text-body-emphasis fw-bold">Lire la suite...</a>
                         </div>
                     <div class="col-md-12 px-3">
                         <div class="h-100 d-flex justify-content-center align-items-center rounded">
