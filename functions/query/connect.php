@@ -5,6 +5,7 @@ function sql_connect(){
 
     //connect BDD with PDO using SQL_HOST, SQL_USER, SQL_PWD, SQL_DB
     // Avec encodage UTF8
+    $DB = new PDO('mysql:host=localhost;dbname=blogart25', 'root', '');
 
     if (strpos($_SERVER['HTTP_HOST'], 'scalingo') !== false) {
 
