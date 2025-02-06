@@ -17,7 +17,6 @@ if(isset($_GET['numCom'])){
     $numArt = sql_select("comment", "numArt", "numCom = $numCom")[0]['numArt'];
     $numMemb = sql_select("comment", "numMemb", "numCom = $numCom")[0]['numMemb'];
 
-
     $pseudoMemb = sql_select("membre", "pseudoMemb", "numMemb = $numMemb")[0]['pseudoMemb'];
     $libTitrArt = sql_select("article", "libTitrArt", "numArt = $numArt")[0]['libTitrArt'];
     $parag1Art = sql_select("article", "parag1Art", "numArt = $numArt")[0]['parag1Art'];
@@ -56,10 +55,11 @@ if(isset($_GET['numCom'])){
                                 <?php ?> 
                                     <tr>
                                         <?php $idm = $comment['numMemb'] ?>
-                                        <td><?php echo($comment['numArt']); ?></td>
+                                        <?php $idn = $comment['numArt'] ?>
+                                        <td><?php echo ($articles[$idn-1]['libTitrArt']); ?></td>
                                         <td><?php echo ($membres[$idm-1]['pseudoMemb']); ?></td>
                                         <td><?php echo($comment['dtCreaCom']); ?></td>
-                                        <td><?php echo($comment['libCom']); ?></td>
+                                         <td><?php echo($comment['libCom']); ?></td>
                                         <td>
                                             <a href="edit - ATTENTE MODIFICATION.php?numCom=<?php echo($comment['numCom']); ?>" class="btn btn-outline-warning">Edit</a>
                                         </td>
@@ -96,8 +96,8 @@ if(isset($_GET['numCom'])){
                         <?php  foreach($comments as $comment){ 
                             if ($comment['attModOK'] == 1 && $comment['delLogiq'] == 0){?> 
                                 <?php ?> <tr>
-                                <td><?php echo($comment['numArt']); ?></td>
-                                    <td><?php echo($comment['dtModCom']); ?></td>
+                                    <?php $idm = $comment['numMemb'] ?>
+                                    <td><?php echo ($membres[$idm-1]['pseudoMemb']); ?></td>                                    <td><?php echo($comment['dtModCom']); ?></td>
                                     <td><?php echo($comment['libCom']); ?></td>
                                     <td><?php if($comment['delLogiq'] == 0){echo "ACCEPTER";}else{echo "REFUS";}?></td>
                                     <td><?php echo($comment['notifComKOAff']); ?></td>
@@ -134,10 +134,11 @@ if(isset($_GET['numCom'])){
                 <tbody>
                 <tr>
                 <?php  foreach($comments as $comment){ 
-                            if ($comment['attModOK'] == 0 && $comment['delLogiq'] == 1){?> 
+                            if ($comment['delLogiq'] == 1){?> 
                                 <?php ?> <tr>
-                                <td><?php echo($comment['numArt']); ?></td>
-                                    <td><?php echo($comment['dtModCom']); ?></td>
+                                    <?php $idm = $comment['numMemb'] ?>
+                                    <td><?php echo ($membres[$idm-1]['pseudoMemb']); ?></td>                                    
+                                    <td><?php echo($comment['dtDelLogCom']); ?></td>
                                     <td><?php echo($comment['libCom']); ?></td>
                                     <td><?php if($comment['delLogiq'] == 0){echo "ACCEPTER";}else{echo "REFUS";}?></td>
                                     <td><?php echo($comment['notifComKOAff']); ?></td>
@@ -176,8 +177,9 @@ if(isset($_GET['numCom'])){
                 <?php  foreach($comments as $comment){ 
                             if ($comment['delLogiq'] == 1){?> 
                                 <?php ?> <tr>
-                                <td><?php echo($comment['numArt']); ?></td>
-                                    <td><?php echo($comment['dtModCom']); ?></td>
+                                    <?php $idm = $comment['numMemb'] ?>
+                                    <td><?php echo ($membres[$idm-1]['pseudoMemb']); ?></td>                                    
+                                    <td><?php echo($comment['dtDelLogCom']); ?></td>
                                     <td><?php echo($comment['libCom']); ?></td>
                                     <td><?php if($comment['delLogiq'] == 0){echo "ACCEPTER";}else{echo "REFUS";}?></td>
                                     <td><?php echo($comment['notifComKOAff']); ?></td>
