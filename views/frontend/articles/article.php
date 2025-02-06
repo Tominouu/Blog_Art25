@@ -11,6 +11,8 @@ if (isset($_SESSION['user_id'])) {
     $id2 = null;
 }
 
+$id = $_GET['numArt'];
+
 // Vérifie si un ID est passé en paramètre
 if (isset($_GET['numArt']) && is_numeric($_GET['numArt'])) {
     $numArt = intval($_GET['numArt']);
