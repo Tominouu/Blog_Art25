@@ -53,7 +53,7 @@ $article = sql_select("ARTICLE", "*");
                 <div class="col-md-12 p-4 d-flex flex-column position-static">
                     <h3 class="mb-3"><?php echo htmlspecialchars($article[$i]['libTitrArt']); ?></h3>
                     <p class="card-text mb-auto"><?php echo htmlspecialchars($article[$i]['libChapoArt']); ?></p>
-                    <a href="views/frontend/articles/article.php?
+                    <a href="/views/frontend/articles/article.php?
                     <?php echo isset($_SESSION['user_id']) ? 'id=' . $_SESSION['user_id'] . '&' : ''; ?>
                     numArt=<?php echo $article[$i]['numArt']; ?>&like=0" 
                     class="text-body-emphasis fw-bold">Lire la suite...</a>
@@ -84,7 +84,7 @@ $article = sql_select("ARTICLE", "*");
             <div class="p-4 p-md-5 mb-4">
                 <h1 class="display-4"><?php echo htmlspecialchars($article[3]['libTitrArt']); ?></h1>
                 <p class="lead my-3"><?php echo htmlspecialchars($article[3]['libChapoArt']); ?></p>
-                <a href="views/frontend/articles/article.php?
+                <a href="/views/frontend/articles/article.php?
                 <?php echo isset($_SESSION['user_id']) ? 'id=' . $_SESSION['user_id'] . '&' : ''; ?>
                 numArt=<?php echo $article[3]['numArt']; ?>&like=0" 
                 class="text-body-emphasis fw-bold">Lire la suite...</a>

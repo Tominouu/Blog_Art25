@@ -13,6 +13,7 @@ if (isset($_SESSION['user_id'])) {
 
 $id = $_GET['numArt'];
 
+
 // Vérifie si un ID est passé en paramètre
 if (isset($_GET['numArt']) && is_numeric($_GET['numArt'])) {
     $numArt = intval($_GET['numArt']);
@@ -23,6 +24,10 @@ if (isset($_GET['numArt']) && is_numeric($_GET['numArt'])) {
         echo "<h1>Article non trouvé</h1>";
         exit;
     }
+} 
+else {
+    echo "<h1>Article non trouvé</h1>";
+    exit;
 }
 $numArt = $_GET['numArt'];
 $likePositif = 1;
