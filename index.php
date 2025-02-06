@@ -80,6 +80,5 @@ $article = sql_select("ARTICLE", "*");
         </div>
     </div>
     <?php } ?>
-</script>
 </main>
 <?php require_once 'footer.php'; ?>  
