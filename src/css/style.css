@@ -8,9 +8,36 @@ h1{
     font-weight: bold;
 }
 
+/* Ajoute un margin-top ou padding-top pour le contenu sous le header */
+body {
+    padding-top: 80px; /* Ajuste la valeur en fonction de la hauteur de ton header */
+}
+
+.haut{
+    background-color: #badafd;
+    z-index: 100;
+}
 
 .decorative-line {
     border: 0;
     height: 4px;
     background: #007bff;
+}
+
+a{
+    font-weight: bold;
+}
+
+.nav-link {
+    color: black !important; /* Texte noir */
+    font-size: 1.2rem;
+    transition: color 0.3s ease-in-out;
+}
+.nav-link:hover {
+    color: rgb(58, 176, 226) !important; /* Bleu clair au hover */
+}
+@media (max-width: 768px) {
+    .nav-link {
+        font-size: 1rem; /* Taille de police plus petite sur mobile */
+    }
 }

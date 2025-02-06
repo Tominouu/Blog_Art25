@@ -17,6 +17,8 @@
     ?>
 
     <!-- Bootstrap form to create a new motcle -->
+    <link rel="stylesheet" href="<?php echo ROOT_URL . '/src/css/style.css'; ?>" />
+    <body>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -75,3 +77,4 @@
             </div>
         </div>
     </div>
+</body>
