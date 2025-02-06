@@ -10,6 +10,9 @@ $thematiques = sql_select('thematique', '*');
 
 
 <!-- Bootstrap default layout to display all statuts in foreach -->
+<link rel="stylesheet" href="/../../src/css/style.css">
+<body>
+    
 <div class="container">
     <div class="row">
         <div class="col-md-12">
@@ -55,5 +58,7 @@ $thematiques = sql_select('thematique', '*');
         </div>
     </div>
 </div>
+</body>
+
 <?php
 include '../../../footer.php'; // contains the footer

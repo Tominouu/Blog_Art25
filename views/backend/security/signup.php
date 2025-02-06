@@ -17,7 +17,7 @@
     ?>
 
     <!-- Bootstrap form to create a new motcle -->
-    <link rel="stylesheet" href="<?php echo ROOT_URL . '/src/css/style.css'; ?>" />
+    <link rel="stylesheet" href="/../../src/css/style.css">
     <body>
     <div class="container">
         <div class="row">

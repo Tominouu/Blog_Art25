@@ -5,6 +5,7 @@ include '../../../header.php';
 $thematiques = sql_select('THEMATIQUE', '*');
 ?>
 
+<link rel="stylesheet" href="/../../src/css/style.css">
 <div class="container">
     <div class="row">
         <div class="col-md-12">

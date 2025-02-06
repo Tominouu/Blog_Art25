@@ -6,7 +6,7 @@ if(isset($_GET['numThem'])){
     $libThem = sql_select("THEMATIQUE", "libThem", "numThem = $numThem")[0]['libThem'];
 }
 ?>
-
+<link rel="stylesheet" href="/../../src/css/style.css">
 <div class="container">
     <div class="row">
         <div class="col-md-12">

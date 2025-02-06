@@ -24,6 +24,8 @@ if(isset($_GET['numCom'])){
 ?>
 
 <!-- Bootstrap default layout to display all statuts in foreach -->
+<link rel="stylesheet" href="/../../src/css/style.css">
+
 <div class="container">
     <div class="row">
         <div class="col-md-12">
@@ -59,7 +61,7 @@ if(isset($_GET['numCom'])){
                                         <td><?php echo ($articles[$idn-1]['libTitrArt']); ?></td>
                                         <td><?php echo ($membres[$idm-1]['pseudoMemb']); ?></td>
                                         <td><?php echo($comment['dtCreaCom']); ?></td>
-                                         <td><?php echo($comment['libCom']); ?></td>
+                                        <td><?php echo($comment['libCom']); ?></td>
                                         <td>
                                             <a href="edit - ATTENTE MODIFICATION.php?numCom=<?php echo($comment['numCom']); ?>" class="btn btn-outline-warning">Edit</a>
                                         </td>

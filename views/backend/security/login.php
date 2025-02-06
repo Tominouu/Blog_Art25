@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-<link rel="stylesheet" href="<?php echo ROOT_URL . '/src/css/style.css'; ?>" />
+<link rel="stylesheet" href="/../../src/css/style.css">
 <body>
 <div class="container">
     <div class="row justify-content-center">

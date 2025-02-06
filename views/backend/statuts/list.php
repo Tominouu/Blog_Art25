@@ -6,6 +6,7 @@ $statuts = sql_select("STATUT", "*");
 ?>
 
 <!-- Bootstrap default layout to display all statuts in foreach -->
+<link rel="stylesheet" href="/../../src/css/style.css">
 <div class="container">
     <div class="row">
         <div class="col-md-12">

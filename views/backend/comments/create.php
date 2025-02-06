@@ -6,7 +6,7 @@ $membres = sql_select("MEMBRE", "*");
 
 
 <!-- Bootstrap form to create a new motcle -->
-<link rel="stylesheet" href="src/css/style.css">
+<link rel="stylesheet" href="/../../src/css/style.css">
 <div class="container">
     <div class="row">
         <div class="col-md-12">
