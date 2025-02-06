@@ -55,7 +55,8 @@ if(isset($_GET['numCom'])){
                                 <?php ?> 
                                     <tr>
                                         <?php $idm = $comment['numMemb'] ?>
-                                        <td><?php echo ($comment['numMemb']); ?></td>
+                                        <?php $idn = $comment['numArt'] ?>
+                                        <td><?php echo ($articles[$idn-1]['libTitrArt']); ?></td>
                                         <td><?php echo ($membres[$idm-1]['pseudoMemb']); ?></td>
                                         <td><?php echo($comment['dtCreaCom']); ?></td>
                                         <td><?php echo($comment['libCom']); ?></td>
@@ -136,7 +137,8 @@ if(isset($_GET['numCom'])){
                             if ($comment['delLogiq'] == 1){?> 
                                 <?php ?> <tr>
                                     <?php $idm = $comment['numMemb'] ?>
-                                    <td><?php echo ($membres[$idm-1]['pseudoMemb']); ?></td>                                    <td><?php echo($comment['dtModCom']); ?></td>
+                                    <td><?php echo ($membres[$idm-1]['pseudoMemb']); ?></td>                                    
+                                    <td><?php echo($comment['dtModCom']); ?></td>
                                     <td><?php echo($comment['libCom']); ?></td>
                                     <td><?php if($comment['delLogiq'] == 0){echo "ACCEPTER";}else{echo "REFUS";}?></td>
                                     <td><?php echo($comment['notifComKOAff']); ?></td>
