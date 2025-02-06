@@ -1,7 +1,6 @@
 <?php 
     require_once '../../header.php';
     sql_connect();
-
     require_once $_SERVER['DOCUMENT_ROOT'] . '/config.php';
 
     // Récupérer les articles de la base de données

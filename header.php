@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Header Bootstrap</title>
+    <title>Header</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="src/css/style.css">
 </head>
@@ -34,7 +34,7 @@ require_once 'config.php';
                     <div class="d-flex flex-grow-1 mx-5 justify-content-start text-start">
                         <ul class="navbar-nav gap-2">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="/index.php">Acceuil</a>
+                                <a class="nav-link active" aria-current="page" href="/index.php">Accueil</a>
                             </li>
                             <li class="nav-item">
                                 <a href="/views/frontend/events.php" class="nav-link">Evenement</a>
