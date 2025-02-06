@@ -29,7 +29,7 @@ $article = sql_select("ARTICLE", "*");
                 <p class="lead my-3">
                     <?php echo $article ? htmlspecialchars($article[0]['libChapoArt']) : "Aucun article trouvé."; ?>
                 </p>
-                <a href="/views/frontend/articles/article?id=<?php echo $article[0]['numArt']; ?>" class="text-body-emphasis fw-bold">Lire la suite...</a>
+                <a href="/views/frontend/articles/article.php?id=<?php echo $article[0]['numArt']; ?>" class="text-body-emphasis fw-bold">Lire la suite...</a>
             </div>
         </div>
         <!-- Article à la une (image) -->
@@ -48,7 +48,7 @@ $article = sql_select("ARTICLE", "*");
                 <div class="col-md-12 p-4 d-flex flex-column position-static">
                     <h3 class="mb-3"><?php echo htmlspecialchars($article[$i]['libTitrArt']); ?></h3>
                     <p class="card-text mb-auto"><?php echo htmlspecialchars($article[$i]['libChapoArt']); ?></p>
-                    <a href="views/frontend/articles/article?id=<?php echo $article[$i]['numArt']; ?>" class="text-body-emphasis fw-bold">Lire la suite...</a>
+                    <a href="views/frontend/articles/article.php?id=<?php echo $article[$i]['numArt']; ?>" class="text-body-emphasis fw-bold">Lire la suite...</a>
                     </div>
                 <div class="col-md-12 px-3">
                     <div class="h-100 d-flex justify-content-center align-items-center rounded">
@@ -75,7 +75,7 @@ $article = sql_select("ARTICLE", "*");
             <div class="p-4 p-md-5 mb-4">
                 <h1 class="display-4"><?php echo htmlspecialchars($article[3]['libTitrArt']); ?></h1>
                 <p class="lead my-3"><?php echo htmlspecialchars($article[3]['libChapoArt']); ?></p>
-                <a href="views/frontend/articles/article?id=<?php echo $article[3]['numArt']; ?>" class="text-body-emphasis fw-bold">Lire la suite...</a>
+                <a href="views/frontend/articles/article.php?id=<?php echo $article[3]['numArt']; ?>" class="text-body-emphasis fw-bold">Lire la suite...</a>
             </div>
         </div>
     </div>

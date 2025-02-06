@@ -9,6 +9,7 @@
     ?>
 
     <link rel="stylesheet" href="<?php echo ROOT_URL . '/src/css/style.css'; ?>" />
+<body>
     <main class="container bg-white">
         <div class="row">
             <div class="col mt-4">
@@ -39,4 +40,5 @@
             <?php }} ?>
         </div>
     </main>
+</body>
     <?php require_once '../../footer.php'; ?>  
