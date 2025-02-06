@@ -34,7 +34,7 @@ require_once 'config.php';
                     <div class="d-flex flex-grow-1 mx-5 justify-content-start text-start">
                         <ul class="navbar-nav gap-2">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="/index.php">Acceuil</a>
+                                <a class="nav-link active" aria-current="page" href="/index.php">Accueil</a>
                             </li>
                             <li class="nav-item">
                                 <a href="/views/frontend/events.php" class="nav-link">Evenement</a>
