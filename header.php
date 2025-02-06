@@ -16,7 +16,7 @@ $numStat = isset($_SESSION['numStat']) ? $_SESSION['numStat'] : 3;
 require_once 'config.php';
 ?>
 <body>
-
+    <h1> <?php $numStat ?> </h1>
     <!-- Header avec Navbar -->
     <header class="haut mt-3 text-center p-2 position-fixed top-0 start-50 translate-middle-x shadow w-75 w-md-50" style="border-radius: 15px; height: 60px;">
         <nav class="navbar navbar-expand-md navbar-light h-100">
@@ -47,11 +47,11 @@ require_once 'config.php';
                             </li>
                             
                             <!-- ✅ Bouton Admin visible uniquement si l'utilisateur est modérateur ou admin -->
-                            <!-- <?php if ($numStat == '1' || $numStat == '2'): ?>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/views/backend/dashboard.php">Admin</a>
-                            </li>
-                            <?php endif; ?> -->
+                            <?php if ($numStat == '1' || $numStat == '2'): ?>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/views/backend/dashboard.php">Admin</a>
+                                </li>
+                            <?php endif; ?>
                         </ul>
                     </div>
                 </div>
@@ -64,7 +64,7 @@ require_once 'config.php';
                     </form>
 
                     <!-- Si l'utilisateur est connecté -->
-                    <?php if ($pseudo): ?>
+                    <?php if ($pseudo): 3?>
                     <div class="d-flex align-items-center me-3">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
                             <path d="M13.468 12.37C12.444 11.226 10.834 10.5 8 10.5s-4.444.726-5.468 1.87A6.992 6.992 0 0 1 8 1a6.992 6.992 0 0 1 5.468 11.37z"/>

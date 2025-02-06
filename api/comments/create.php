@@ -10,4 +10,4 @@ $numMemb = ctrlSaisies($_POST['numMemb']);
 sql_insert('comment', 'libCom, numArt, numMemb', "'$libCom', '$numArt', '$numMemb'");
 
 
-header('Location: ../../views/backend/comments/list.php');
+header('Location: ../../views/frontend/articles/article.php?id=' . $numArt);
