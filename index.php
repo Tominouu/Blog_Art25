@@ -80,39 +80,6 @@ $article = sql_select("ARTICLE", "*");
         </div>
     </div>
     <?php } ?>
-        <div id="cookieAccepter" style="position: fixed; bottom: 20px; left: 20px; right: 20px; background: #fff; border: 1px solid #ccc; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); display: none; z-index: 1000;">
-    <p style="margin: 0; font-size: 14px;">Nous utilisons des cookies pour améliorer votre expérience sur notre site. En continuant, vous acceptez notre <a href="#" style="color: blue; text-decoration: underline;">politique de cookies</a>.</p>
-    <button id="acceptCookies" style="margin-top: 10px; padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">Accepter</button>
-    <button id="refuseCookies" style="margin-top: 10px; padding: 10px 20px; background: #dc3545; color: white; border: none; border-radius: 5px; cursor: pointer;">Refuser</button>
-</div>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        let consent = localStorage.getItem('cookieAccepter');
-
-        if (!consent) {
-            document.getElementById('cookieAccepter').style.display = 'block';
-        }
-
-        document.getElementById('acceptCookies').addEventListener('click', function() {
-            document.cookie = "cookieAccepter=accepted; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
-            document.getElementById('cookieAccepter').style.display = 'none';
-            // Ici, on pourrait charger les cookies
-        });
-
-        document.getElementById('refuseCookies').addEventListener('click', function() {
-            localStorage.setItem('cookieAccepter', 'denied');
-            document.getElementById('cookieAccepter').style.display = 'none';
-            // Supprimer les cookies non essentiels
-            deleteAllCookies();
-        });
-
-        function deleteAllCookies() {
-            document.cookie.split(";").forEach(function(c) {
-                document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/");
-            });
-        }
-    });
 </script>
 </main>
 <?php require_once 'footer.php'; ?>  
