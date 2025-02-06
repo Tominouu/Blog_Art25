@@ -1,6 +1,5 @@
 <?php 
 require_once 'header.php';
-session_start(); 
 sql_connect();
 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/config.php';
