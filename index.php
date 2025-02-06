@@ -35,7 +35,7 @@ $article = sql_select("ARTICLE", "*");
         <!-- Article à la une (image) -->
         <div class="col-md-6 d-flex align-items-center pe-5">
             <div class="w-100 d-flex justify-content-center align-items-center">
-                <img src="<?php echo ROOT_URL . '/src/uploads/' . htmlspecialchars($article[3]['urlPhotArt']); ?>" alt="Image actuelle" style="max-height: 100%; max-width: 100%;">
+                <img src="<?php echo ROOT_URL . '/src/uploads/' . htmlspecialchars($article[0]['urlPhotArt']); ?>" alt="Image actuelle" style="max-height: 100%; max-width: 100%;">
             </div>
         </div>
     </div>
