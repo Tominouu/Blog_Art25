@@ -59,7 +59,7 @@ if(isset($_GET['numCom'])){
                                         <td><?php echo ($articles[$idn-1]['libTitrArt']); ?></td>
                                         <td><?php echo ($membres[$idm-1]['pseudoMemb']); ?></td>
                                         <td><?php echo($comment['dtCreaCom']); ?></td>
-                                        <td><?php echo($comment['libCom']); ?></td>
+                                         <td><?php echo($comment['libCom']); ?></td>
                                         <td>
                                             <a href="edit - ATTENTE MODIFICATION.php?numCom=<?php echo($comment['numCom']); ?>" class="btn btn-outline-warning">Edit</a>
                                         </td>
@@ -138,7 +138,7 @@ if(isset($_GET['numCom'])){
                                 <?php ?> <tr>
                                     <?php $idm = $comment['numMemb'] ?>
                                     <td><?php echo ($membres[$idm-1]['pseudoMemb']); ?></td>                                    
-                                    <td><?php echo($comment['dtModCom']); ?></td>
+                                    <td><?php echo($comment['dtDelLogCom']); ?></td>
                                     <td><?php echo($comment['libCom']); ?></td>
                                     <td><?php if($comment['delLogiq'] == 0){echo "ACCEPTER";}else{echo "REFUS";}?></td>
                                     <td><?php echo($comment['notifComKOAff']); ?></td>
@@ -178,7 +178,8 @@ if(isset($_GET['numCom'])){
                             if ($comment['delLogiq'] == 1){?> 
                                 <?php ?> <tr>
                                     <?php $idm = $comment['numMemb'] ?>
-                                    <td><?php echo ($membres[$idm-1]['pseudoMemb']); ?></td>                                    <td><?php echo($comment['dtModCom']); ?></td>
+                                    <td><?php echo ($membres[$idm-1]['pseudoMemb']); ?></td>                                    
+                                    <td><?php echo($comment['dtDelLogCom']); ?></td>
                                     <td><?php echo($comment['libCom']); ?></td>
                                     <td><?php if($comment['delLogiq'] == 0){echo "ACCEPTER";}else{echo "REFUS";}?></td>
                                     <td><?php echo($comment['notifComKOAff']); ?></td>
