@@ -82,7 +82,7 @@ $eMailMemb = ctrlSaisies($_POST['eMailMemb']);
 $numStat = ctrlSaisies($_POST['numStat']);
 
 // Hashage du mot de passe
-// $hashedPassMemb = password_hash($passMemb, PASSWORD_DEFAULT);
+$hashedPassMemb = password_hash($passMemb, PASSWORD_DEFAULT);
 
 // Insertion en base de données
 sql_insert('membre', 'nomMemb, prenomMemb, pseudoMemb, passMemb, eMailMemb, numStat', 
