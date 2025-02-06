@@ -84,7 +84,7 @@ if (!isset($_SESSION['pseudoMemb'])) {
                         <tr>
                             <td>Likes</td>
                             <td>
-                                <a href="/views/backend/likes/list.php" class="btn btn-primary disabled">List</a>
+                                <a href="/views/backend/likes/list.php" class="btn btn-primary ">List</a>
                                 <a href="/views/backend/likes/create.php" class="btn btn-success disabled">Create</a>
                                 <a href="/views/backend/likes/edit.php" class="btn btn-warning disabled">Edit</a>
                                 <a href="/views/backend/likes/delete.php" class="btn btn-danger disabled">Delete</a>
