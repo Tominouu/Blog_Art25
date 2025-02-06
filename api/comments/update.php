@@ -7,13 +7,16 @@ $libCom = ctrlSaisies($_POST['libCom']);
 $delLogiq = ctrlSaisies($_POST['delLogiq']);
 $attModOK = ctrlSaisies($_POST['attModOK']);
 $notifComKOAff = ctrlSaisies($_POST['notifComKOAff']);
-
-
+$dtDelLogCom=date("Y-m-d-H-i-s");
 //sql_delete('STATUT', "numStat = $numStat");
 sql_update('comment', "libCom = '$libCom'", "numCom = $numCom");
 sql_update('comment', "delLogiq = '$delLogiq'", "numCom = $numCom");
 sql_update('comment', "attModOK = '$attModOK'", "numCom = $numCom");
 sql_update('comment', "notifComKOAff = '$notifComKOAff'", "numCom = $numCom");
+sql_update('comment', "dtDelLogCom='$dtDelLogCom'", "numCom = $numCom");
+
+
+
 
 header('Location: ../../views/backend/comments/list.php');
 ?>
