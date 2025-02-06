@@ -4,8 +4,10 @@ sql_connect();
 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/config.php';
 
+
 // Récupérer les articles de la base de données
 $article = sql_select("ARTICLE", "*");
+
 ?>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,7 +31,10 @@ $article = sql_select("ARTICLE", "*");
                 <p class="lead my-3">
                     <?php echo $article ? htmlspecialchars($article[0]['libChapoArt']) : "Aucun article trouvé."; ?>
                 </p>
-                <a href="/views/frontend/articles/article.php?id=<?php echo $article[0]['numArt']; ?>" class="text-body-emphasis fw-bold">Lire la suite...</a>
+                <a href="views/frontend/articles/article.php?
+                <?php echo isset($_SESSION['user_id']) ? 'id=' . $_SESSION['user_id'] . '&' : ''; ?>
+                numArt=<?php echo $article[0]['numArt']; ?>&like=0" 
+                class="text-body-emphasis fw-bold">Lire la suite...</a>
             </div>
         </div>
         <!-- Article à la une (image) -->
@@ -48,7 +53,11 @@ $article = sql_select("ARTICLE", "*");
                 <div class="col-md-12 p-4 d-flex flex-column position-static">
                     <h3 class="mb-3"><?php echo htmlspecialchars($article[$i]['libTitrArt']); ?></h3>
                     <p class="card-text mb-auto"><?php echo htmlspecialchars($article[$i]['libChapoArt']); ?></p>
-                    <a href="views/frontend/articles/article.php?id=<?php echo $article[$i]['numArt']; ?>" class="text-body-emphasis fw-bold">Lire la suite...</a>
+                    <a href="views/frontend/articles/article.php?
+                    <?php echo isset($_SESSION['user_id']) ? 'id=' . $_SESSION['user_id'] . '&' : ''; ?>
+                    numArt=<?php echo $article[$i]['numArt']; ?>&like=0" 
+                    class="text-body-emphasis fw-bold">Lire la suite...</a>
+
                     </div>
                 <div class="col-md-12 px-3">
                     <div class="h-100 d-flex justify-content-center align-items-center rounded">
@@ -75,10 +84,43 @@ $article = sql_select("ARTICLE", "*");
             <div class="p-4 p-md-5 mb-4">
                 <h1 class="display-4"><?php echo htmlspecialchars($article[3]['libTitrArt']); ?></h1>
                 <p class="lead my-3"><?php echo htmlspecialchars($article[3]['libChapoArt']); ?></p>
-                <a href="views/frontend/articles/article.php?id=<?php echo $article[3]['numArt']; ?>" class="text-body-emphasis fw-bold">Lire la suite...</a>
+                <a href="views/frontend/articles/article.php?
+                <?php echo isset($_SESSION['user_id']) ? 'id=' . $_SESSION['user_id'] . '&' : ''; ?>
+                numArt=<?php echo $article[3]['numArt']; ?>&like=0" 
+                class="text-body-emphasis fw-bold">Lire la suite...</a>
+
             </div>
         </div>
     </div>
     <?php } ?>
+    <div id="cookieAccepter" style="position: fixed; bottom: 20px; left: 20px; right: 20px; background: #fff; border: 1px solid #ccc; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); display: none; z-index: 1000;">
+    <p style="margin: 0; font-size: 14px;">Nous utilisons des cookies pour améliorer votre expérience sur notre site. En continuant, vous acceptez notre <a href="#" style="color: blue; text-decoration: underline;">politique de cookies</a>.</p>
+    <button id="acceptCookies" style="margin-top: 10px; padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">Accepter</button>
+    <button id="refuseCookies" style="margin-top: 10px; padding: 10px 20px; background: #dc3545; color: white; border: none; border-radius: 5px; cursor: pointer;">Refuser</button>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        let consent = localStorage.getItem('cookieAccepter');
+        if (!consent) {
+            document.getElementById('cookieAccepter').style.display = 'block';
+        }
+        document.getElementById('acceptCookies').addEventListener('click', function() {
+            document.cookie = "cookieAccepter=accepted; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
+            document.getElementById('cookieAccepter').style.display = 'none';
+            // Ici, on pourrait charger les cookies
+        });
+        document.getElementById('refuseCookies').addEventListener('click', function() {
+            localStorage.setItem('cookieAccepter', 'denied');
+            document.getElementById('cookieAccepter').style.display = 'none';
+            // Supprimer les cookies non essentiels
+            deleteAllCookies();
+        });
+        function deleteAllCookies() {
+            document.cookie.split(";").forEach(function(c) {
+                document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/");
+            });
+        }
+    });
+</script>
 </main>
 <?php require_once 'footer.php'; ?>  
