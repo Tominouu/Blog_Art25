@@ -16,6 +16,8 @@ if(isset($_GET['numCom'])){
     $delLogiq = sql_select("comment", "delLogiq", "numCom = $numCom")[0]['delLogiq'];
     $numArt = sql_select("comment", "numArt", "numCom = $numCom")[0]['numArt'];
     $numMemb = sql_select("comment", "numMemb", "numCom = $numCom")[0]['numMemb'];
+    $Controle = $delLogiq;
+
 
     $pseudoMemb = sql_select("membre", "pseudoMemb", "numMemb = $numMemb")[0]['pseudoMemb'];
     $libTitrArt = sql_select("article", "libTitrArt", "numArt = $numArt")[0]['libTitrArt'];
@@ -98,7 +100,7 @@ if(isset($_GET['numCom'])){
                                 <td><?php echo($comment['numArt']); ?></td>
                                     <td><?php echo($comment['dtModCom']); ?></td>
                                     <td><?php echo($comment['libCom']); ?></td>
-                                    <td><?php echo($comment['dtCreaCom']); ?></td>
+                                    <td><?php if($comment['delLogiq'] == 0){echo "ACCEPTER";}else{echo "REFUS";}?></td>
                                     <td><?php echo($comment['notifComKOAff']); ?></td>
                                     <td>
                                         <a href="edit - CONTROLLER MODIFICATION.php?numCom=<?php echo($comment['numCom']); ?>" class="btn btn-outline-warning">Edit</a>
@@ -138,7 +140,7 @@ if(isset($_GET['numCom'])){
                                 <td><?php echo($comment['numArt']); ?></td>
                                     <td><?php echo($comment['dtModCom']); ?></td>
                                     <td><?php echo($comment['libCom']); ?></td>
-                                    <td><?php echo($comment['dtCreaCom']); ?></td>
+                                    <td><?php if($comment['delLogiq'] == 0){echo "ACCEPTER";}else{echo "REFUS";}?></td>
                                     <td><?php echo($comment['notifComKOAff']); ?></td>
                                     <td>
                                         <a href="edit - SUPPRESION.php?numCom=<?php echo($comment['numCom']); ?>" class="btn btn-outline-warning">Edit</a>
@@ -178,7 +180,7 @@ if(isset($_GET['numCom'])){
                                 <td><?php echo($comment['numArt']); ?></td>
                                     <td><?php echo($comment['dtModCom']); ?></td>
                                     <td><?php echo($comment['libCom']); ?></td>
-                                    <td><?php echo($comment['dtCreaCom']); ?></td>
+                                    <td><?php if($comment['delLogiq'] == 0){echo "ACCEPTER";}else{echo "REFUS";}?></td>
                                     <td><?php echo($comment['notifComKOAff']); ?></td>
                                     <td>
                                         <a href="delete.php?numCom=<?php echo($comment['numCom']); ?>" class="btn btn-outline-danger">Delete</a>
