@@ -1,3 +1,4 @@
+<?
 include '../../../header.php';
 
 if(isset($_GET['numCom'])){
