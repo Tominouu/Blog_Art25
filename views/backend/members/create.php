@@ -13,13 +13,13 @@
             box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
         ">' . $_SESSION['error_message'] . '</div>';
         unset($_SESSION['error_message']); // Supprimer le message après affichage
-    }
+    } 
 
     // Vérifie si l'utilisateur est connecté, sinon redirige vers la page de login
     if (!isset($_SESSION['pseudoMemb'])) {
-        header("Location: " . ROOT_URL . "/views/backend/security/login.php");
-        exit();
-    }   
+    header("Location: " . ROOT_URL . "/views/backend/security/login.php");
+    exit();
+}
     ?>
 
     <!-- Bootstrap form to create a new motcle -->

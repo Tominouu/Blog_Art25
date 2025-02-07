@@ -1,6 +1,13 @@
 <?php
 include '../../../header.php';
 
+
+// Vérifie si l'utilisateur est connecté, sinon redirige vers la page de login
+if (!isset($_SESSION['pseudoMemb'])) {
+    header("Location: " . ROOT_URL . "/views/backend/security/login.php");
+    exit();
+}
+
 // Récupérer les tables
 $articles = sql_select("article", "*");
 $thematiques = sql_select('thematique', '*');

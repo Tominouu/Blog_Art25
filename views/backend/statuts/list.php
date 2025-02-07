@@ -4,6 +4,11 @@ include '../../../header.php'; // contains the header and call to config.php
 //Load all statuts
 $statuts = sql_select("STATUT", "*");
 
+// Vérifie si l'utilisateur est connecté, sinon redirige vers la page de login
+if (!isset($_SESSION['pseudoMemb'])) {
+    header("Location: " . ROOT_URL . "/views/backend/security/login.php");
+    exit();
+}
 ?>
 
 <!-- Bootstrap default layout to display all statuts in foreach -->

@@ -16,6 +16,12 @@ if(isset($_GET['numCom'])){
     $libTitrArt = sql_select("article", "libTitrArt", "numArt = $numArt")[0]['libTitrArt'];
     $parag1Art = sql_select("article", "parag1Art", "numArt = $numArt")[0]['parag1Art'];
 }
+
+// Vérifie si l'utilisateur est connecté, sinon redirige vers la page de login
+if (!isset($_SESSION['pseudoMemb'])) {
+    header("Location: " . ROOT_URL . "/views/backend/security/login.php");
+    exit();
+}
 ?>
 
 <!-- Bootstrap form to create a new statut -->

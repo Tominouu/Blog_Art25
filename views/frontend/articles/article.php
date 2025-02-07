@@ -44,7 +44,7 @@
 ?>
 <body>
     <!-- Affichage de l'article -->
-    <link rel="stylesheet" href="<?php echo ROOT_URL . '/src/css/style.css'; ?>" />
+    <link rel="stylesheet" href="/../../src/css/style.css">
     <main class="container">
         <div class="row">
             <div class="col mt-4 text-center">

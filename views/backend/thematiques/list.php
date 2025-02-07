@@ -1,7 +1,11 @@
 <?php
 include '../../../header.php'; // contains the header and call to config.php
 
-
+// Vérifie si l'utilisateur est connecté, sinon redirige vers la page de login
+if (!isset($_SESSION['pseudoMemb'])) {
+    header("Location: " . ROOT_URL . "/views/backend/security/login.php");
+    exit();
+}
 //Load all statuts
 $thematiques = sql_select("THEMATIQUE", "*");
 ?>

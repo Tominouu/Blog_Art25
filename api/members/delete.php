@@ -6,6 +6,8 @@ require_once '../../functions/ctrlSaisies.php';
 $numMemb = ctrlSaisies($_POST['numMemb']);
 
 // Supression
+sql_delete('comment', "numMemb = $numMemb");
+sql_delete('likeart', "numMemb = $numMemb");
 sql_delete('membre', "numMemb = $numMemb");
 
 // Redirection

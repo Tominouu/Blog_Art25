@@ -1,6 +1,12 @@
 <?php
 include '../../../header.php';
 
+// Vérifie si l'utilisateur est connecté, sinon redirige vers la page de login
+if (!isset($_SESSION['pseudoMemb'])) {
+    header("Location: " . ROOT_URL . "/views/backend/security/login.php");
+    exit();
+}
+
 // Récupération de tous les articles
 $articles = sql_select('ARTICLE', 'numArt, libTitrArt');
 

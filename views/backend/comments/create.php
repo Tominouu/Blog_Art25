@@ -2,7 +2,13 @@
 include '../../../header.php';
 $articles = sql_select("ARTICLE", "*");
 $membres = sql_select("MEMBRE", "*");
+// Vérifie si l'utilisateur est connecté, sinon redirige vers la page de login
+if (!isset($_SESSION['pseudoMemb'])) {
+    header("Location: " . ROOT_URL . "/views/backend/security/login.php");
+    exit();
+}
 ?>
+
 
 
 <link rel="stylesheet" href="/../../src/css/style.css">
