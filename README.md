@@ -5,7 +5,7 @@
 
 
 ## Architecture
-- **api** - Contains all php calls for example "create.php" for statuts, articles.
+- **api** - Fonctionnel sauf erreur d'affichage sur les pseudos et le titre des articles sur les commentaires
 - **classes** - Contains all classes for example "members.php"
 - **config** - Contains all the configuration files specific to the operation of the application, for example "security.php"
 - **functions** - Contains all the functions of your code for example "data.php", "create.php"
@@ -14,6 +14,6 @@
 
 ## Files to complete
 - **.env** - Foreach user exemple in .env.example
-- **config/security.php** - Check user cookie
-- **index.php** - Must be the homepage
-- **views** - All your pages
+- **config/security.php** - Cookies sur la page fonctionnels
+- **index.php** - Page d'acceuil
+- **views** - Toutes les pages
