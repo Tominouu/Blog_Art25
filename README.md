@@ -1,4 +1,5 @@
-# Blogart Template
+
+# BLOGART ✅
 
 ## Setup
 
