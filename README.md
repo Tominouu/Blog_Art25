@@ -17,3 +17,7 @@
 - **config/security.php** - Cookies sur la page fonctionnels
 - **index.php** - Page d'acceuil
 - **views** - Toutes les pages
+
+Compte admin :
+pseudo : Admin99
+mot de passe : 12345678*Aa
