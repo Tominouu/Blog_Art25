@@ -17,7 +17,7 @@
 				<span class="mb-3 mb-md-0 text-muted">© 2025 Li&Co</span>
 			</div>
 			<div class="col">
-				<a class="text-decoration-none text-dark" href="/views/frontend/rgpd/cgu">Politique de Confidentialité</a>
+				<a class="text-decoration-none text-dark" href="/views/frontend/rgpd/cgu">Conditions d'utilisations</a>
 			</div>
 			<!-- retour en haut -->
 			<a href="#top" class="me-3 text-dark">

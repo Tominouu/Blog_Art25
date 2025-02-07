@@ -59,9 +59,11 @@ require_once 'config.php';
                 <!-- Liens de navigation droite-->
                 <!-- Zone de droite -->
                 <div class="d-flex align-items-center">
-                    <form class="d-flex me-2" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Rechercher sur le site…" aria-label="Search">
-                    </form>
+                <form method="GET" action="/views/frontend/search.php" class="d-flex">
+                    <input class="form-control me-2" type="search" name="query" placeholder="Rechercher un article par mot-clé" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Rechercher</button>
+                </form>
+
 
                     <!-- Si l'utilisateur est connecté -->
                     <?php if ($pseudo): 3?>

@@ -25,22 +25,22 @@ $article = sql_select("ARTICLE", "*");
         <div class="col-md-6">
             <div class="p-4 p-md-5 mb-4 pe-3">
                 <h1 class="display-4">
-                    <?php echo $article ? htmlspecialchars($article[0]['libTitrArt']) : "Aucun article trouvé."; ?>
+                    <?php echo $article ? htmlspecialchars($article[2]['libTitrArt']) : "Aucun article trouvé."; ?>
                 </h1>
                 <!-- Article à la une (chapô) -->
                 <p class="lead my-3">
-                    <?php echo $article ? htmlspecialchars($article[0]['libChapoArt']) : "Aucun article trouvé."; ?>
+                    <?php echo $article ? htmlspecialchars($article[2]['libChapoArt']) : "Aucun article trouvé."; ?>
                 </p>
                 <a href="views/frontend/articles/article.php?
                 <?php echo isset($_SESSION['user_id']) ? 'id=' . $_SESSION['user_id'] . '&' : ''; ?>
-                numArt=<?php echo $article[0]['numArt']; ?>&like=0" 
+                numArt=<?php echo $article[2]['numArt']; ?>&like=0" 
                 class="text-body-emphasis fw-bold">Lire la suite...</a>
             </div>
         </div>
         <!-- Article à la une (image) -->
         <div class="col-md-6 d-flex align-items-center pe-5">
             <div class="w-100 d-flex justify-content-center align-items-center">
-                <img src="<?php echo ROOT_URL . '/src/uploads/' . htmlspecialchars($article[0]['urlPhotArt']); ?>" alt="Image actuelle" style="max-height: 100%; max-width: 100%;">
+                <img src="<?php echo ROOT_URL . '/src/uploads/' . htmlspecialchars($article[2]['urlPhotArt']); ?>" alt="Image actuelle" style="max-height: 100%; max-width: 100%;">
             </div>
         </div>
     </div>
@@ -93,7 +93,7 @@ $article = sql_select("ARTICLE", "*");
         </div>
     </div>
     <?php } ?>
-       <div id="cookieAccepter" style="position: fixed; bottom: 20px; left: 20px; right: 20px; background: #fff; border: 1px solid #ccc; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); display: none; z-index: 1000;">
+    <div id="cookieAccepter" style="position: fixed; bottom: 20px; left: 20px; right: 20px; background: #fff; border: 1px solid #ccc; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); display: none; z-index: 1000;">
     <p style="margin: 0; font-size: 14px;">Nous utilisons des cookies pour améliorer votre expérience sur notre site. En continuant, vous acceptez notre <a href="#" style="color: blue; text-decoration: underline;">politique de cookies</a>.</p>
     <button id="acceptCookies" style="margin-top: 10px; padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">Accepter</button>
     <button id="refuseCookies" style="margin-top: 10px; padding: 10px 20px; background: #dc3545; color: white; border: none; border-radius: 5px; cursor: pointer;">Refuser</button>
