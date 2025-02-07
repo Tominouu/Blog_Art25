@@ -5,6 +5,7 @@ if(isset($_GET['numStat'])){
     $numStat = $_GET['numStat'];
     $libStat = sql_select("STATUT", "libStat", "numStat = $numStat")[0]['libStat'];
 }
+
 ?>
 
 <!-- Bootstrap form to create a new statut -->

@@ -14,6 +14,12 @@
         ">' . $_SESSION['error_message'] . '</div>';
         unset($_SESSION['error_message']); // Supprimer le message après affichage
     }
+
+    // Vérifie si l'utilisateur est connecté, sinon redirige vers la page de login
+    if (!isset($_SESSION['pseudoMemb'])) {
+        header("Location: " . ROOT_URL . "/views/backend/security/login.php");
+        exit();
+    }   
     ?>
 
     <!-- Bootstrap form to create a new motcle -->

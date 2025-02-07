@@ -3,6 +3,7 @@ include '../../../header.php'; // contains the header and call to config.php
 
 //Load all statuts
 $statuts = sql_select("STATUT", "*");
+
 ?>
 
 <!-- Bootstrap default layout to display all statuts in foreach -->

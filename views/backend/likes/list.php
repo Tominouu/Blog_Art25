@@ -1,6 +1,7 @@
 <?php
 include '../../../header.php'; // contains the header and call to config.php
 
+
 //charge tous les likes
 $likes = sql_select("likeart", "*");
 ?>

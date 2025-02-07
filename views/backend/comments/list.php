@@ -1,6 +1,5 @@
 <?php
 include '../../../header.php'; // contains the header and call to config.php
-
 //Load all statuts
 $comments = sql_select("comment", "*");
 $articles = sql_select("article", "*");
@@ -23,9 +22,7 @@ if(isset($_GET['numCom'])){
 }
 ?>
 
-<!-- Bootstrap default layout to display all statuts in foreach -->
 <link rel="stylesheet" href="/../../src/css/style.css">
-
 <div class="container">
     <div class="row">
         <div class="col-md-12">
@@ -53,23 +50,22 @@ if(isset($_GET['numCom'])){
                 <tbody>
                         <?php  
                         foreach($comments as $comment ){
+                            $id_memb = $comment['numMemb'];
+                            $id_article = $comment['numArt'];
                             if ($comment['attModOK'] == 0 && $comment['delLogiq'] == 0){?> 
-                                <?php ?> 
-                                    <tr>
-                                        <?php $idm = $comment['numMemb'] ?>
-                                        <?php $idn = $comment['numArt'] ?>
-                                        <td><?php echo ($articles[$idn-1]['libTitrArt']); ?></td>
-                                        <td><?php echo ($membres[$idm-1]['pseudoMemb']); ?></td>
-                                        <td><?php echo($comment['dtCreaCom']); ?></td>
-                                        <td><?php echo($comment['libCom']); ?></td>
-                                        <td>
-                                            <a href="edit - ATTENTE MODIFICATION.php?numCom=<?php echo($comment['numCom']); ?>" class="btn btn-outline-warning">Edit</a>
-                                        </td>
-                                        <td>
-                                            <a href="edit - CONTROLLER MODIFICATION.php?numCom=<?php echo($comment['numCom']); ?>" class="btn btn-outline-primary">Controller</a>
-                                        </td>
-                                    </tr>
-                        <?php }} ?>
+                                <tr>
+                                    <td><?php echo ($articles[$id_article]['libTitrArt']); ?></td>
+                                    <td><?php echo ($membres[$id_memb]['pseudoMemb']); ?></td>
+                                    <td><?php echo($comment['dtCreaCom']); ?></td>
+                                    <td><?php echo($comment['libCom']); ?></td>
+                                    <td>
+                                        <a href="edit - ATTENTE MODIFICATION.php?numCom=<?php echo($comment['numCom']); ?>" class="btn btn-outline-warning">Edit</a>
+                                    </td>
+                                    <td>
+                                        <a href="edit - CONTROLLER MODIFICATION.php?numCom=<?php echo($comment['numCom']); ?>" class="btn btn-outline-primary">Controller</a>
+                                    </td>
+                                </tr>
+                            <?php }} ?>
                 </tbody>
                 
             </table>

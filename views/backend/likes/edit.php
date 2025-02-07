@@ -1,6 +1,7 @@
 <?php
 include '../../../header.php';
 
+
 if(isset($_GET['numMemb'])){
     $numMemb = $_GET['numMemb'];
     $numArt = sql_select("likeart", "numArt", "numMemb = $numMemb")[0]['numArt'];

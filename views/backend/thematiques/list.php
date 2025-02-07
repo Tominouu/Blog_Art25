@@ -1,6 +1,7 @@
 <?php
 include '../../../header.php'; // contains the header and call to config.php
 
+
 //Load all statuts
 $thematiques = sql_select("THEMATIQUE", "*");
 ?>

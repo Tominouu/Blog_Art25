@@ -14,6 +14,7 @@
         ">' . $_SESSION['error_message'] . '</div>';
         unset($_SESSION['error_message']); // Supprimer le message après affichage
     }
+
     ?>
 
     <!-- Bootstrap form to create a new motcle -->

@@ -1,6 +1,5 @@
 <?
 include '../../../header.php';
-
 if(isset($_GET['numCom'])){
     $numCom = $_GET['numCom'];
     $dtCreaCom = sql_select("comment", "dtCreaCom", "numCom = $numCom")[0]['dtCreaCom'];
