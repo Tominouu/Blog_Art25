@@ -88,9 +88,8 @@ $thematiques = sql_select('THEMATIQUE', '*');
                         <?php endforeach; ?>
                     </div>
                 </div>
-
-                <br />
-
+                <br/>
+                <!-- Thématique -->
                 <div class="form-group">
                     <label for="numThem">Thématique</label>    
                     <select class="form-select" name="numThem">
@@ -101,7 +100,8 @@ $thematiques = sql_select('THEMATIQUE', '*');
                         <?php endforeach; ?>
                     </select>
                 </div>
-                <br />
+
+                <br/>
                 <div class="form-group mt-2">
                     <a href="list.php" class="btn btn-primary">List</a>
                     <button type="submit" class="btn btn-success">Confirmer create ?</button>

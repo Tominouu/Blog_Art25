@@ -5,7 +5,6 @@ $membres = sql_select("MEMBRE", "*");
 ?>
 
 
-<!-- Bootstrap form to create a new motcle -->
 <link rel="stylesheet" href="/../../src/css/style.css">
 <div class="container">
     <div class="row">
@@ -13,8 +12,8 @@ $membres = sql_select("MEMBRE", "*");
             <h1>Création nouveau de Commentaires</h1>
         </div>
         <div class="col-md-12">
-            <!-- Form to create a new motcle -->
-            <form action="<?php echo ROOT_URL . '/api/comments/create.php' ?>" method="post">
+        <!-- Formulaire -->
+        <form action="<?php echo ROOT_URL . '/api/comments/create.php' ?>" method="post">
                 <div class="form-group">
                     <label for="libCom">Commentaires</label>
                     <input id="libCom" name="libCom" class="form-control" type="text" autofocus="autofocus" />

@@ -1,19 +1,19 @@
 <?php
-session_start(); // Démarrer la session pour stocker les messages
+session_start();
 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/config.php';
 require_once '../../functions/ctrlSaisies.php';
 
+// Récupérer des données du formulaire
 $nomMemb = ctrlSaisies($_POST['nomMemb']);
 $prenomMemb = ctrlSaisies($_POST['prenomMemb']);
 $pseudoMemb = ctrlSaisies($_POST['pseudoMemb']);
 $rgpdConsent = ctrlSaisies($_POST['rgpd']);
 
 // Vérification de l'accord RGPD
-    // Vérification de la case RGPD
-    if (!isset($_POST['rgpd']) || $_POST['rgpd'] !== 'oui') {
-        $_SESSION['error_message'] = "Vous devez accepter la conservation de vos données personnelles (RGPD) pour vous inscrire.";
-        header('Location: ' . $_SERVER['HTTP_REFERER']);
+if (!isset($_POST['rgpd']) || $_POST['rgpd'] !== 'oui') {
+    $_SESSION['error_message'] = "Vous devez accepter la conservation de vos données personnelles (RGPD) pour vous inscrire.";
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
 exit();
     }
 
@@ -78,6 +78,7 @@ if (!preg_match($passwordPattern, $passMemb)) {
     exit;
 }
 
+// recuperer les données
 $eMailMemb = ctrlSaisies($_POST['eMailMemb']);
 $numStat = ctrlSaisies($_POST['numStat']);
 
@@ -88,5 +89,6 @@ $hashedPassMemb = password_hash($passMemb, PASSWORD_DEFAULT);
 sql_insert('membre', 'nomMemb, prenomMemb, pseudoMemb, passMemb, eMailMemb, numStat', 
     "'$nomMemb', '$prenomMemb', '$pseudoMemb', '$hashedPassMemb', '$eMailMemb', '$numStat'");
 
+    // Redirection
 header('Location: ../../views/backend/members/list.php');
 exit;

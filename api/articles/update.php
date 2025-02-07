@@ -10,7 +10,7 @@ if (!isset($_POST['numArt']) || empty($_POST['numArt'])) {
 
 $numArt = ctrlSaisies($_POST['numArt']); // ID de l'article à modifier
 
-// Récupération et sécurisation des données du formulaire
+// Récupérer les données du formulaire
 $libTitrArt = isset($_POST['libTitrArt']) ? ctrlSaisies($_POST['libTitrArt']) : '';
 $libChapoArt = isset($_POST['libChapoArt']) ? ctrlSaisies($_POST['libChapoArt']) : '';
 $libAccrochArt = isset($_POST['libAccrochArt']) ? ctrlSaisies($_POST['libAccrochArt']) : '';
@@ -22,7 +22,7 @@ $parag3Art = isset($_POST['parag3Art']) ? ctrlSaisies($_POST['parag3Art']) : '';
 $libConclArt = isset($_POST['libConclArt']) ? ctrlSaisies($_POST['libConclArt']) : '';
 $numThem = isset($_POST['numThem']) ? ctrlSaisies($_POST['numThem']) : 0;
 
-// Gestion de l'image : garder l'ancienne ou en enregistrer une nouvelle
+// Gestion de l'image
 $urlPhotArt = '';
 if (isset($_FILES['urlPhotArt']) && $_FILES['urlPhotArt']['error'] == 0) {
     $uploadDir = $_SERVER['DOCUMENT_ROOT'] . '/src/uploads/';
@@ -62,7 +62,7 @@ if (isset($_POST['numMotCle'])) {
 }
 
 
-// Redirection vers la liste des articles après modification
+// Redirection
 header('Location: ../../views/backend/articles/list.php');
 exit();
 

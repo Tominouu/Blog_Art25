@@ -3,6 +3,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/config.php';
 require_once '../../functions/ctrlSaisies.php';
 session_start();
 
+// Récupérer les données du formulaire
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $pseudo = ctrlSaisies($_POST['pseudo']);
     $password = ctrlSaisies($_POST['password']);

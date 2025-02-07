@@ -15,8 +15,6 @@ if(isset($_GET['numArt'])){
     $libConclArt = sql_select("ARTICLE", "libConclArt", "numArt = $numArt")[0]['libConclArt'];
     $urlPhotArt = sql_select("ARTICLE", "urlPhotArt", "numArt = $numArt")[0]['urlPhotArt'];
     $article = sql_select('ARTICLE', '*', "numArt = '$numArt'")[0];
-
-
 }
 ?>
 

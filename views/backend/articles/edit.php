@@ -132,7 +132,7 @@ $thematiques = sql_select('THEMATIQUE', '*');
                             <?php endforeach; ?>
                         </select>
                     </div>
-                    
+
                     <!-- Mots-clés -->
                     <div class="form-group">
                         <label>Mots-clés</label>
@@ -161,7 +161,6 @@ $thematiques = sql_select('THEMATIQUE', '*');
                             <?php endforeach; ?>
                         </div>
                     </div>
-
 
                     <br />
                     <div class="form-group mt-2">

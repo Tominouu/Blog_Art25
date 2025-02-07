@@ -6,11 +6,12 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/config.php';
 require_once '../../functions/ctrlSaisies.php';
 var_dump($_SESSION);
 
+// Récupérer les données du formulaire
 $numMem = $_SESSION['user_id'];
 $numArt = $_GET['numArt'];
 
+// Récupérer le nb de like
 $likeselect = sql_select('LIKEART', '*', "numMemb = $numMem AND numArt = $numArt");
-
 if ($likeselect) {
     $likeType = sql_select('LIKEART', 'likeA', "numMemb = $numMem AND numArt = $numArt");
     var_dump($likeType);

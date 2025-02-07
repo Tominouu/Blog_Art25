@@ -36,7 +36,7 @@ sql_insert('ARTICLE',
     "'$libTitrArt', '$libChapoArt', '$libAccrochArt', '$parag1Art', '$libSsTitr1Art', '$parag2Art', '$libSsTitr2Art', '$parag3Art', '$libConclArt', '$numThem', '$urlPhotArt'"
 );
 
-// Récupération du dernier ID inséré en utilisant `ORDER BY` et `LIMIT`
+// Récupération du dernier ID ajouté
 $article = sql_select('ARTICLE', 'numArt', null, null, 'numArt DESC', '1');
 
 // Vérification que l'article existe bien

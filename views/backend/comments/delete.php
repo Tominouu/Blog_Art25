@@ -1,6 +1,7 @@
 <?php
 include '../../../header.php';
 
+// Attribution des variables
 if(isset($_GET['numCom'])){
     $numCom = $_GET['numCom'];
     $dtCreaCom = sql_select("comment", "dtCreaCom", "numCom = $numCom")[0]['dtCreaCom'];
@@ -19,7 +20,7 @@ if(isset($_GET['numCom'])){
 }
 ?>
 
-<!-- Bootstrap form to create a new statut -->
+
 <link rel="stylesheet" href="/../../src/css/style.css">
 <div class="container">
     <div class="row">
