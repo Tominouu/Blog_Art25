@@ -8,7 +8,7 @@
     // Récupérer l'ID de l'utilisateur connecté
     if (isset($_SESSION['user_id'])) {
         $id2 = $_SESSION['user_id'];
-    }else{
+    } else {
         $id2 = null;
     }
 
@@ -26,109 +26,97 @@
     }
 
     // Initialisation des variables
+    $id_theme =  $article[0]['numThem'];
+    $thematique = sql_select('THEMATIQUE', 'libThem', 'numThem = '.$id_theme);
     $id = $_GET['numArt'];
     $commentaire = sql_select('COMMENT','*','numArt = '.$numArt);
     $numArt = $_GET['numArt'];
     $likePositif = 1;
     $allLike = sql_select('LIKEART', '*', "numArt = $numArt AND likeA = $likePositif");
     $nblike = count($allLike);
+    // Récupérer les mots-clés associés à l'article
+    $motsCles = sql_select(
+        "MOTCLEARTICLE MA INNER JOIN MOTCLE MC ON MA.numMotCle = MC.numMotCle",
+        "MC.libMotCle",
+        "MA.numArt = $numArt"
+    );
+
 ?>
-
-<!-- Affichage de l'article -->
-<link rel="stylesheet" href="<?php echo ROOT_URL . '/src/css/style.css'; ?>" />
-<main class="container">
-    <div class="row">
-        <div class="col mt-4">
-            <!-- Titre -->
-            <h1 class="text-center"><?php echo $article[0]['libTitrArt']; ?></h1>
-            <hr class="decorative-line mt-1">
-        </div>
-    </div>
-
-    <div class="container bg-primary bg-opacity-10 col-md-8 col-sm-12 mx-md-auto">
-        <div class="row mx-4">
-            <div class="col">
-                <!-- Chapo et accroche -->
-                <h5 class="mt-4 mt-5"><?php echo $article[0]['libChapoArt']; ?></h5>
-                <h3 class="mt-4"><?php echo $article[0]['libAccrochArt']; ?></h3>
+<body>
+    <!-- Affichage de l'article -->
+    <link rel="stylesheet" href="<?php echo ROOT_URL . '/src/css/style.css'; ?>" />
+    <main class="container">
+        <div class="row">
+            <div class="col mt-4 text-center">
+                <h1><?php echo $article[0]['libTitrArt']; ?></h1>
             </div>
         </div>
 
-        <div class="row mx-4">
-            <div class="col">
-                <!-- Paragraphe 1 et Sous Titre 1 -->
-                <p class="mt-5"> <?php echo $article[0]['parag1Art']; ?> </p>
-                <h4 class="mt-2"> <?php echo $article[0]['libSsTitr1Art']; ?> </h4>
+        <div class="container bg-light shadow-sm p-4 rounded col-md-8 col-sm-12 mx-auto">
+            <!-- Chapo et accroche -->
+            <div class="text-center">
+                <h5 class="fw-bold"><?php echo $article[0]['libChapoArt']; ?></h5>
+                <h3 class="mt-3"><?php echo $article[0]['libAccrochArt']; ?></h3>
             </div>
-        </div>
 
-        <div class="row mx-4">
-            <div class="col">
-                <!-- Paragraphe 2 et Sous Titre 2 -->
-                <p class="mt-5"> <?php echo $article[0]['parag2Art']; ?> </p>
-                <h4 class="mt-2"> <?php echo $article[0]['libSsTitr2Art']; ?> </h4>
+            <!-- Contenu de l'article -->
+            <div class="mt-4">
+                <p><?php echo $article[0]['parag1Art']; ?></p>
+                <h4 class="text-secondary"><?php echo $article[0]['libSsTitr1Art']; ?></h4>
+
+                <p class="mt-3"><?php echo $article[0]['parag2Art']; ?></p>
+                <h4 class="text-secondary"><?php echo $article[0]['libSsTitr2Art']; ?></h4>
+
+                <p class="mt-3"><?php echo $article[0]['parag3Art']; ?></p>
+                <h4 class="fw-bold mt-3"><?php echo $article[0]['libConclArt']; ?></h4>
             </div>
-        </div>
 
-        <div class="row mx-4">
-            <div class="col">
-                <!-- Paragraphe 3 -->
-                <p class="mt-5"> <?php echo $article[0]['parag3Art']; ?> </p>
-            </div>
-        </div>
-
-        <div class="row mx-4">
-            <div class="col">
-                <!-- Conclusion -->
-                <h4 class="mt-2"> <?php echo $article[0]['libConclArt']; ?> </h4>                
-            </div>
-        </div>
-
-        <div class="row mt-4">
-            <div class="col-md-8 mx-auto">
-                <!-- Photo -->
+            <!-- Image -->
+            <div class="text-center mt-4">
                 <img src="<?php echo ROOT_URL . '/src/uploads/' . $article[0]['urlPhotArt']; ?>" 
-                    alt="Image de l'article" class="img-fluid rounded mb-4">
+                    alt="Image de l'article" class="img-fluid rounded shadow">
+            </div>
+
+            <!-- Thématique et Mots-clés -->
+            <div class="d-flex flex-wrap justify-content-center mt-4">
+                <span class="badge bg-secondary mx-1">Thématique : <?php echo $thematique[0]['libThem']; ?></span>
+                <?php if (!empty($motsCles)) : ?>
+                    <?php foreach ($motsCles as $mot) : ?>
+                        <span class="badge bg-info text-dark mx-1"><?php echo htmlspecialchars($mot['libMotCle']); ?></span>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+            </div>
+
+            <!-- Likes et commentaires -->
+            <div class="d-flex justify-content-center align-items-center mt-4">
+                <a <?php if (empty($_SESSION)) echo 'style="pointer-events: none;"'; ?> 
+                href="<?php echo ROOT_URL . '/api/likes/create.php?numArt=' . $numArt; ?>" 
+                class="d-flex align-items-center text-decoration-none">
+                    <i class="fa-<?php echo (!empty($_GET) && $_GET['like'] == 1) ? 'solid' : 'regular'; ?> fa-heart me-2 text-danger" style="font-size: 20px;"></i>
+                    <p class="mb-0"><?php echo $nblike; ?> J'aime</p>
+                </a>
+
+                <form action="/../../../views/frontend/comments/commentaire.php" method="GET" class="ms-3">
+                    <input type="hidden" name="id2" value="<?php echo $id2; ?>">
+                    <input type="hidden" name="id1" value="<?php echo $id; ?>">
+                    <button type="submit" class="btn btn-primary">Commenter</button>
+                </form>
+            </div>
+
+            <!-- Affichage des commentaires -->
+            <div class="mt-4">
+                <h2>Commentaires :</h2>
+                <?php foreach ($commentaire as $com) : ?>
+                    <?php if ($com['attModOK'] == 1 && $com['delLogiq'] == 0) : ?>
+                        <div class="card shadow-sm mb-2">
+                            <div class="card-body">
+                                <p class="mb-0"><?php echo htmlspecialchars($com['libCom']); ?></p>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                <?php endforeach; ?>
             </div>
         </div>
-
-        <!-- Gestion des likes -->
-        <div class="d-flex justify-content-center align-items-center mt-4">
-            <!-- Redirection -->
-            <a <?php if (empty($_SESSION)) {echo 'style="pointer-events: none;"';} ?> href="<?php echo ROOT_URL . '/api/likes/create.php?numArt='.$numArt?>" class="d-flex align-items-center me-3 text-decoration-none">
-            <!-- Incrémentation / Décrementation des likes -->
-            <?php if (!empty($_GET)) {
-                if ($_GET['like'] == 0) {
-                    echo '<i class="fa-regular fa-heart me-2" style="font-size: 20px; color: red;"></i>';
-                } elseif ($_GET['like'] == 1) {
-                    echo '<i class="fa-solid fa-heart me-2" style="font-size: 20px; color: red;"></i>';
-                }
-            } ?>
-            <p class="mb-0"><?php echo $nblike; ?> J'aime</p>
-            </a>
-
-            <!-- Gestion des commentaires -->
-            <form action="/../../../views/frontend/comments/commentaire.php" method="GET" class="d-flex align-items-center ms-3">
-                <!-- Champs cachés pour les IDs -->
-                <input type="hidden" name="id2" value="<?php echo $id2; ?>">
-                <input type="hidden" name="id1" value="<?php echo $id; ?>">
-                <!-- Bouton qui soumet le formulaire -->
-                <button type="submit" class="btn btn-primary">Commenter</button>
-            </form>
-        </div>
-
-        <!-- Affichage des commentaires -->
-        <div class="mt-4 mb-4">
-            <h2>Commentaires :</h2>
-            <?php 
-            foreach ($commentaire as $com) {
-                if ($com['attModOK'] == 1 AND $com['delLlogiq'] == 0) {
-                    echo '<div class="bg-white p-3 rounded mb-2">';
-                    echo '<p class="mb-0">' . htmlspecialchars($com['libCom']) . '</p>';
-                    echo '</div>';
-            }}?>
-        </div>
-    </div>
-</main>
-
+    </main>
+</body>
 <?php require_once '../../../footer.php'; ?>

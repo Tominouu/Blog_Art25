@@ -29,6 +29,7 @@ $thematiques = sql_select('thematique', '*');
                         <th>Paragraphe 3</th>
                         <th>Conclusion</th>
                         <th>Thématique</th>
+                        <th> Mots clés </th>
                     </tr>
                 </thead>
                 <tbody>

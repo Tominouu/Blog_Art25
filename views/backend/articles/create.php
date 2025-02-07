@@ -71,6 +71,26 @@ $thematiques = sql_select('THEMATIQUE', '*');
                     <input type="file" name="urlPhotArt" class="form-control" id="urlPhotArt" accept="image/*">
                 </div>
 
+                <!-- Mots-clés -->
+                <div class="form-group">
+                    <label>Mots-clés</label>
+                    <div>
+                        <?php
+                        // Récupération des mots-clés depuis la base de données
+                        $motsCles = sql_select('MOTCLE', '*');
+                        foreach ($motsCles as $motCle) : ?>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="numMotCle[]" value="<?php echo $motCle['numMotCle']; ?>" id="motCle_<?php echo $motCle['numMotCle']; ?>">
+                                <label class="form-check-label" for="motCle_<?php echo $motCle['numMotCle']; ?>">
+                                    <?php echo $motCle['libMotCle']; ?>
+                                </label>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+
+                <br />
+
                 <div class="form-group">
                     <label for="numThem">Thématique</label>    
                     <select class="form-select" name="numThem">

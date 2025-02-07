@@ -12,7 +12,7 @@ if (isset($_POST['numArt'])) {
             unlink($imagePath);
         }
     }
-
+    sql_delete("MOTCLEARTICLE", "numArt = '$numArt'");
     sql_delete('ARTICLE', "numArt = $numArt");
     header('Location: ../../views/backend/articles/list.php?delete=success');
     exit();

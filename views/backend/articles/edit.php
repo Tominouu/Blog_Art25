@@ -132,6 +132,37 @@ $thematiques = sql_select('THEMATIQUE', '*');
                             <?php endforeach; ?>
                         </select>
                     </div>
+                    
+                    <!-- Mots-clés -->
+                    <div class="form-group">
+                        <label>Mots-clés</label>
+                        <div>
+                            <?php
+                            // Récupération de tous les mots-clés disponibles
+                            $motsCles = sql_select('MOTCLE', '*');
+
+                            // Récupération des mots-clés déjà associés à l'article
+                            $motsClesArticle = sql_select('MOTCLEARTICLE', 'numMotCle', "numArt = '$numArt'");
+                            $motsClesAssocies = array_column($motsClesArticle, 'numMotCle'); // Convertir en tableau simple
+
+                            foreach ($motsCles as $motCle) :
+                                // Vérifier si ce mot-clé est déjà associé à l'article
+                                $checked = in_array($motCle['numMotCle'], $motsClesAssocies) ? 'checked' : '';
+                            ?>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="numMotCle[]" 
+                                        value="<?php echo $motCle['numMotCle']; ?>" 
+                                        id="motCle_<?php echo $motCle['numMotCle']; ?>" 
+                                        <?php echo $checked; ?>>
+                                    <label class="form-check-label" for="motCle_<?php echo $motCle['numMotCle']; ?>">
+                                        <?php echo $motCle['libMotCle']; ?>
+                                    </label>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+
+
                     <br />
                     <div class="form-group mt-2">
                         <a href="list.php" class="btn btn-primary">Retour à la liste</a>

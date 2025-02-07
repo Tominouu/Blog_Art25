@@ -59,6 +59,35 @@ if(isset($_GET['numArt'])){
                             <p>Aucune image</p>
                         <?php endif; ?>
                 </div>
+
+                <?php
+                // Récupérer les numéros des mots-clés associés à cet article
+                $motsClesArticle = sql_select('MOTCLEARTICLE', 'numMotCle', "numArt = '$numArt'");
+
+                // Si des mots-clés sont trouvés, on récupère leurs libellés
+                $motsClesNoms = [];
+                if (!empty($motsClesArticle)) {
+                    $motsClesIds = array_column($motsClesArticle, 'numMotCle');
+                    if (!empty($motsClesIds)) {
+                        $motsClesNoms = sql_select('MOTCLE', 'libMotCle', "numMotCle IN (" . implode(',', $motsClesIds) . ")");
+                    }
+                }
+                ?>
+
+                <!-- Affichage des mots-clés associés avant suppression -->
+                <div class="form-group">
+                    <label>Mots-clés associés :</label>
+                    <?php if (!empty($motsClesNoms)) : ?>
+                        <ul class="list-group">
+                            <?php foreach ($motsClesNoms as $motCle) : ?>
+                                <li class="list-group-item"><?php echo htmlspecialchars($motCle['libMotCle']); ?></li>
+                            <?php endforeach; ?>
+                        </ul>
+                    <?php else : ?>
+                        <p class="text-muted">Aucun mot-clé associé à cet article.</p>
+                    <?php endif; ?>
+                </div>
+
                 <br />
                 <div class="form-group mt-2">
                     <a href="list.php" class="btn btn-primary">List</a>

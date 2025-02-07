@@ -45,6 +45,23 @@ if (isset($_FILES['urlPhotArt']) && $_FILES['urlPhotArt']['error'] == 0) {
         "numArt='$numArt'");
 }
 
+// Vérifier si des mots-clés sont sélectionnés
+if (isset($_POST['numMotCle'])) {
+    $numMotCles = $_POST['numMotCle']; // Tableau des mots-clés sélectionnés
+
+    // Supprimer tous les mots-clés actuels de l'article
+    sql_delete('MOTCLEARTICLE', "numArt = '$numArt'");
+
+    // Insérer les nouveaux mots-clés sélectionnés
+    foreach ($numMotCles as $numMotCle) {
+        sql_insert('MOTCLEARTICLE', 'numArt, numMotCle', "'$numArt', '$numMotCle'");
+    }
+} else {
+    // Si aucun mot-clé n'est sélectionné, supprimer les anciens
+    sql_delete('MOTCLEARTICLE', "numArt = '$numArt'");
+}
+
+
 // Redirection vers la liste des articles après modification
 header('Location: ../../views/backend/articles/list.php');
 exit();
