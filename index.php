@@ -35,7 +35,7 @@ $article = sql_select("ARTICLE", "*");
                 <a href="views/frontend/articles/article.php?
                 <?php echo isset($_SESSION['user_id']) ? 'id=' . $_SESSION['user_id'] . '&' : ''; ?>
                 numArt=<?php echo $article[2]['numArt']; ?>&like=0" 
-                class="text-body-emphasis fw-bold">Lire la suite...</a>
+                class="text-body-emphasis fw-bold">Lire la suite....</a>
             </div>
         </div>
         <!-- Article à la une (image) -->
